@@ -1,0 +1,142 @@
+{
+  "description": "The reference checklist. A school may rename steps to match its own system and change which are required.",
+  "checklist": [
+    {
+      "step": "application",
+      "label": "Application",
+      "item_types": [],
+      "required": true,
+      "owner": "family"
+    },
+    {
+      "step": "writing",
+      "label": "Student writing",
+      "item_types": [
+        "writing"
+      ],
+      "required": true,
+      "owner": "family"
+    },
+    {
+      "step": "parent_statement",
+      "label": "Parent Statement",
+      "item_types": [
+        "parent_statement"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "transcripts",
+      "label": "Transcripts",
+      "item_types": [
+        "transcript",
+        "report_card"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "testing",
+      "label": "Educational Testing",
+      "item_types": [
+        "test_score"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "english",
+      "label": "English Competency Testing (TOEFL/IELTS)",
+      "item_types": [
+        "english_competency"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "iep_504",
+      "label": "IEP/504 Documents",
+      "item_types": [
+        "iep_504"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "additional",
+      "label": "Additional Information",
+      "item_types": [
+        "awards",
+        "additional"
+      ],
+      "required": false,
+      "owner": "family"
+    },
+    {
+      "step": "rec_math",
+      "label": "Mathematics Recommendation",
+      "item_types": [
+        "recommendation_math"
+      ],
+      "required": false,
+      "owner": "recommender"
+    },
+    {
+      "step": "rec_english",
+      "label": "English Recommendation",
+      "item_types": [
+        "recommendation_english"
+      ],
+      "required": false,
+      "owner": "recommender"
+    },
+    {
+      "step": "rec_counselor",
+      "label": "Principal/Counselor Recommendation",
+      "item_types": [
+        "recommendation_counselor"
+      ],
+      "required": false,
+      "owner": "recommender"
+    },
+    {
+      "step": "rec_personal",
+      "label": "Personal Recommendation",
+      "item_types": [
+        "recommendation_personal"
+      ],
+      "required": false,
+      "owner": "recommender"
+    },
+    {
+      "step": "tour",
+      "label": "Campus Tour",
+      "item_types": [],
+      "required": false,
+      "owner": "school"
+    },
+    {
+      "step": "interview",
+      "label": "Interview",
+      "item_types": [],
+      "required": false,
+      "owner": "school"
+    }
+  ],
+  "item_types": [
+    "writing",
+    "parent_statement",
+    "transcript",
+    "report_card",
+    "test_score",
+    "english_competency",
+    "iep_504",
+    "awards",
+    "additional",
+    "recommendation_math",
+    "recommendation_english",
+    "recommendation_counselor",
+    "recommendation_personal"
+  ]
+}

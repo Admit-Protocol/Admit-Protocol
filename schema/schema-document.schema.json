@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://admitprotocol.com/spec/schema/schema-document.schema.json",
+  "title": "Admit Protocol schema document",
+  "description": "What GET /v1/schema returns: the school's identity, its application and item schemas, item types, writing prompts and checklist.",
+  "type": "object",
+  "required": [
+    "protocol",
+    "protocol_version",
+    "school",
+    "base_url",
+    "skill",
+    "application",
+    "text_item",
+    "file_item",
+    "item_types",
+    "checklist"
+  ],
+  "properties": {
+    "service": {
+      "type": "string",
+      "description": "Name of the implementation serving this school."
+    },
+    "protocol": {
+      "const": "Admit Protocol"
+    },
+    "protocol_version": {
+      "type": "string",
+      "examples": [
+        "0.1-draft"
+      ]
+    },
+    "protocol_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "school": {
+      "type": "string"
+    },
+    "school_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "base_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Every endpoint in this specification is relative to it."
+    },
+    "skill": {
+      "type": "string",
+      "format": "uri",
+      "description": "The school's skill file."
+    },
+    "mcp": {
+      "type": "string",
+      "format": "uri",
+      "description": "The school's MCP server, if it serves one."
+    },
+    "fee": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "amount_usd",
+            "pay_url"
+          ],
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "pay_url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      ],
+      "description": "Null when there is no fee. The agent never handles payment; it sends the family to pay_url."
+    },
+    "application": {
+      "$ref": "application.schema.json"
+    },
+    "application_patch": {
+      "$ref": "application-patch.schema.json"
+    },
+    "text_item": {
+      "$ref": "text-item.schema.json"
+    },
+    "file_item": {
+      "$ref": "file-item.schema.json"
+    },
+    "recommendation_request": {
+      "$ref": "recommendation-request.schema.json"
+    },
+    "item_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "label",
+          "sent_by"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "sent_by": {
+            "enum": [
+              "family",
+              "recommender",
+              "registrar"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "writing_prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "text",
+          "required"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "min_words": {
+            "type": "integer"
+          },
+          "max_words": {
+            "type": "integer"
+          },
+          "group": {
+            "type": "string",
+            "description": "Prompts sharing a group are alternatives; the student answers one."
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "writing_rule": {
+      "type": "string"
+    },
+    "checklist": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step",
+          "label",
+          "item_types",
+          "required",
+          "owner"
+        ],
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "item_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "owner": {
+            "enum": [
+              "family",
+              "recommender",
+              "registrar",
+              "school"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

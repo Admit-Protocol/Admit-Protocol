@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "parent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Parent or guardian's full name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+          "description": "The parent or guardian's email. A 6-digit code is sent here; it must not be the student's address."
+        },
+        "relationship": {
+          "type": "string",
+          "enum": [
+            "mother",
+            "father",
+            "guardian",
+            "other"
+          ]
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 40
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "relationship"
+      ],
+      "additionalProperties": false
+    },
+    "student": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "last_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "preferred_name": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "date_of_birth": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "current_school": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "current_grade": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "state_or_region": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "languages_at_home": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "international": {
+          "default": false,
+          "description": "True if the student would need a student visa",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "international"
+      ],
+      "additionalProperties": false
+    },
+    "entering_year": {
+      "type": "string",
+      "enum": [
+        "2027 - 2028",
+        "2028 - 2029"
+      ],
+      "description": "School year the student would enter Values come from the school's live schema.",
+      "x-per-school": true
+    },
+    "entering_grade": {
+      "type": "string",
+      "enum": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "x-per-school": true,
+      "description": "Values come from the school's live schema."
+    },
+    "boarding_or_day": {
+      "type": "string",
+      "enum": [
+        "boarding",
+        "day",
+        "undecided"
+      ],
+      "x-per-school": true,
+      "description": "Values come from the school's live schema."
+    },
+    "financial_aid_interest": {
+      "type": "boolean"
+    },
+    "how_you_found_us": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "agent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "The agent or client sending this, e.g. Claude Code"
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 40
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "parent",
+    "student",
+    "entering_year",
+    "entering_grade",
+    "boarding_or_day"
+  ],
+  "additionalProperties": false,
+  "$id": "https://admitprotocol.com/spec/schema/application.schema.json",
+  "title": "Admit Protocol application",
+  "description": "The fields an agent sends to start an application. Per-school values are marked with x-per-school; a school's live /v1/schema is authoritative for them."
+}

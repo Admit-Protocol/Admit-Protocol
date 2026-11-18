@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "writing",
+        "parent_statement",
+        "transcript",
+        "report_card",
+        "test_score",
+        "english_competency",
+        "iep_504",
+        "awards",
+        "additional"
+      ]
+    },
+    "prompt": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "attestation": {
+      "type": "object",
+      "properties": {
+        "written_by": {
+          "type": "string",
+          "const": "student"
+        },
+        "agent_edited": {
+          "type": "boolean",
+          "const": false
+        },
+        "confirmed_by": {
+          "type": "string",
+          "enum": [
+            "parent",
+            "guardian"
+          ],
+          "description": "Who confirmed the attestation before sending"
+        }
+      },
+      "required": [
+        "written_by",
+        "agent_edited",
+        "confirmed_by"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "additionalProperties": false,
+  "accepted_mime": [
+    "application/pdf",
+    "image/jpeg",
+    "image/png",
+    "image/heic",
+    "image/heif",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ],
+  "max_bytes": 20971520,
+  "$id": "https://admitprotocol.com/spec/schema/file-item.schema.json",
+  "title": "Admit Protocol file item metadata"
+}
