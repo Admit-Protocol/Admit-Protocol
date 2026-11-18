@@ -48,7 +48,7 @@ Every school serves these under its own base address. The same folder, with a ne
 
 ## Proposing changes
 
-Open an issue describing the problem before the change. The bar for a change to the three rules above is very high; the bar for anything else is "a school or an agent needed it." Breaking changes bump `protocol_version` in the schema document.
+Open an [issue](https://github.com/Admit-Protocol/Admit-Protocol/issues) describing the problem before the change, or start a [discussion](https://github.com/Admit-Protocol/Admit-Protocol/discussions) if it is a question. The bar for a change to the three rules above is very high; the bar for anything else is "a school or an agent needed it." Breaking changes bump `protocol_version` in the schema document.
 
 ## Who
 
