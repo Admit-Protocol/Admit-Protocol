@@ -124,6 +124,8 @@ A server MAY detect that an application is a test, a duplicate, or not a real ap
 
 A server MAY expose the operations above as MCP tools over streamable HTTP at `/mcp`, with these names, one per operation: `get_application_schema`, `starter_folder`, `start_application`, `verify_email`, `resend_code`, `update_application`, `add_item`, `add_file`, `get_status`, `submit_application`, `withdraw`, and `request_recommendation` where section 9 is supported. Tools take the application token as an argument named `application_token` until the client ecosystem supports authorization. Tool input schemas MUST be the same schemas as the REST operations.
 
+A hosting platform that serves several schools MAY also expose a **platform server** at its own address (for the reference service, `https://admitprotocol.com/mcp`): `list_schools`, `get_school_instructions` (the school's skill file and schema document), and the tools above with an added `school` argument naming the school's slug. It MUST validate each call against that school's live schema and MUST NOT accept a token issued by one school for another. A school's own server at its base URL remains canonical; the platform server exists so that one connector can reach every school.
+
 ## 13. The flow an agent follows
 
 1. `GET /skill.md`, then `GET /v1/schema`. Fields and enumerations come from the schema, not from memory.

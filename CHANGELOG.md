@@ -12,3 +12,4 @@ First public draft. Matches what the hosted service serves for Verde Valley Scho
 - Starter folder (`/v1/starter`, `starter_folder` tool).
 - Section 10, the one automated judgement allowed: is this application real.
 - Recommendation requests specified; the reference implementation returns 501 for now.
+- Section 12: an optional platform server (one connector for every school on a hosting platform).
