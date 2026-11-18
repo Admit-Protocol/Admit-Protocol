@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.admitprotocol/admit-protocol",
+  "title": "Admit Protocol",
+  "description": "Apply to a school from a folder on your computer. Lists schools, applies to any. Student writes.",
+  "websiteUrl": "https://admitprotocol.com",
+  "repository": {
+    "url": "https://github.com/Admit-Protocol/Admit-Protocol",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://admitprotocol.com/mcp"
+    }
+  ]
+}
