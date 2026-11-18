@@ -8,11 +8,20 @@
     "url": "https://github.com/Admit-Protocol/Admit-Protocol",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://admitprotocol.com/mcp"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://admitprotocol.com/logo-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
     }
   ]
 }
