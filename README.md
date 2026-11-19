@@ -52,4 +52,4 @@ Open an [issue](https://github.com/Admit-Protocol/Admit-Protocol/issues) describ
 
 ## Who
 
-Written and first implemented at Verde Valley School, Sedona, Arizona, by its advancement and enrollment office. hello@admitprotocol.com.
+Written and first implemented by Michael Janzen, who works in independent-school enrollment in Arizona. hello@admitprotocol.com.
